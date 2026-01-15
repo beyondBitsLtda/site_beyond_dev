@@ -11,6 +11,13 @@
   --border: rgba(255, 255, 255, 0.08);
   --gradient: linear-gradient(135deg, rgba(124, 58, 237, 0.85), rgba(24, 161, 255, 0.75), rgba(255, 94, 168, 0.6));
   --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+  --border-thick: 3px solid #000;
+  --border-thicker: 4px solid #000;
+  --shadow-offset: 8px 8px 0 #000;
+  --shadow-offset-sm: 5px 5px 0 #000;
+  --radius-brutal: 6px;
+  --radius-panel: 10px;
+  --focus-outline: 3px solid #fff;
 }
 
 *,
@@ -35,7 +42,7 @@ body {
 h1, h2, h3, h4 {
   font-family: "Space Grotesk", "Inter", system-ui, sans-serif;
   margin: 0;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
 }
 
 p {
@@ -46,6 +53,19 @@ p {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+::selection {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: 3px;
 }
 
 .noise {
@@ -87,9 +107,10 @@ a {
   align-items: center;
   justify-content: space-between;
   padding: 18px 7vw;
-  background: rgba(5, 3, 15, 0.7);
+  background: rgba(5, 3, 15, 0.8);
   backdrop-filter: blur(14px);
-  border-bottom: 1px solid var(--border);
+  border-bottom: var(--border-thicker);
+  box-shadow: var(--shadow-offset-sm);
   gap: 16px;
 }
 
@@ -127,27 +148,22 @@ a {
   font-weight: 500;
   color: var(--muted);
   position: relative;
-  padding: 8px 10px;
-  transition: color 0.2s ease;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 2px solid #000;
+  box-shadow: 3px 3px 0 #000;
+  transition: transform 0.14s ease, box-shadow 0.14s ease, color 0.14s ease;
 }
 
 .main-nav a::after {
-  content: "";
-  position: absolute;
-  left: 10px;
-  bottom: 6px;
-  width: 0;
-  height: 2px;
-  background: var(--gradient);
-  transition: width 0.25s ease;
+  content: none;
 }
 
 .main-nav a:hover {
   color: var(--text);
-}
-
-.main-nav a:hover::after {
-  width: calc(100% - 20px);
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0 #000;
 }
 
 .main-nav .cta {
@@ -156,7 +172,8 @@ a {
   background: var(--gradient);
   color: #0b0717;
   font-weight: 600;
-  box-shadow: 0 10px 30px rgba(124, 58, 237, 0.35);
+  border: 2px solid #000;
+  box-shadow: 4px 4px 0 #000;
 }
 
 .menu-toggle {
@@ -164,7 +181,10 @@ a {
   flex-direction: column;
   gap: 4px;
   background: transparent;
-  border: none;
+  border: 2px solid #000;
+  padding: 6px;
+  border-radius: 8px;
+  box-shadow: 3px 3px 0 #000;
   cursor: pointer;
 }
 
@@ -241,6 +261,11 @@ a {
   max-width: 960px;
   display: grid;
   gap: 26px;
+  padding: 28px;
+  border-radius: var(--radius-panel);
+  border: var(--border-thick);
+  box-shadow: var(--shadow-offset);
+  background: rgba(5, 3, 15, 0.55);
 }
 
 .eyebrow {
@@ -252,8 +277,8 @@ a {
 }
 
 .hero h1 {
-  font-size: clamp(2.4rem, 4vw, 3.8rem);
-  line-height: 1.1;
+  font-size: clamp(2.8rem, 5vw, 4.6rem);
+  line-height: 1.05;
 }
 
 .subtitle {
@@ -273,20 +298,21 @@ a {
   justify-content: center;
   gap: 10px;
   padding: 14px 20px;
-  border-radius: 14px;
-  border: 1px solid var(--border);
+  border-radius: var(--radius-brutal);
+  border: var(--border-thick);
   color: var(--text);
   font-weight: 600;
   cursor: pointer;
-  transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.3s ease, color 0.3s ease;
+  transition: transform 0.14s ease, box-shadow 0.14s ease, background 0.14s ease, color 0.14s ease;
   text-decoration: none;
+  box-shadow: var(--shadow-offset-sm);
 }
 
 .btn.primary {
   background: var(--gradient);
   color: #0b0717;
-  box-shadow: var(--shadow);
-  border: none;
+  border: var(--border-thick);
+  box-shadow: var(--shadow-offset);
 }
 
 .btn.ghost {
@@ -298,8 +324,13 @@ a {
 }
 
 .btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 #000;
+}
+
+.btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 #000;
 }
 
 .hero-meta {
@@ -307,9 +338,10 @@ a {
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 16px;
   padding: 16px;
-  border-radius: 18px;
+  border-radius: var(--radius-panel);
   background: rgba(255, 255, 255, 0.03);
-  border: 1px solid var(--border);
+  border: var(--border-thick);
+  box-shadow: var(--shadow-offset-sm);
 }
 
 .meta-label {
@@ -347,13 +379,15 @@ a {
   letter-spacing: 0.12em;
   font-weight: 700;
   font-size: 0.8rem;
+  border: 2px solid #000;
+  box-shadow: 3px 3px 0 #000;
 }
 
 .about h2,
 .services h2,
 .cases h2,
 .contact h2 {
-  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-size: clamp(2.1rem, 3.6vw, 3rem);
 }
 
 .about-text {
@@ -369,10 +403,10 @@ a {
 
 .pillar-card {
   padding: 20px;
-  border-radius: 16px;
+  border-radius: var(--radius-panel);
   background: var(--card);
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow);
+  border: var(--border-thick);
+  box-shadow: var(--shadow-offset);
   position: relative;
   overflow: hidden;
 }
@@ -402,7 +436,7 @@ a {
 
 .services {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(5, 3, 15, 0.2));
-  border-block: 1px solid var(--border);
+  border-block: var(--border-thicker);
 }
 
 .services-grid {
@@ -418,13 +452,13 @@ a {
 
 .service-card {
   padding: 22px;
-  border-radius: 18px;
+  border-radius: var(--radius-panel);
   background: var(--card);
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow);
+  border: var(--border-thick);
+  box-shadow: var(--shadow-offset);
   position: relative;
   overflow: hidden;
-  transition: transform 0.2s ease, border-color 0.2s ease;
+  transition: transform 0.14s ease, box-shadow 0.14s ease;
 }
 
 .service-card::after {
@@ -437,8 +471,8 @@ a {
 }
 
 .service-card:hover {
-  transform: translateY(-6px);
-  border-color: rgba(255, 255, 255, 0.18);
+  transform: translate(-3px, -3px);
+  box-shadow: 10px 10px 0 #000;
 }
 
 .service-card:hover::after {
@@ -450,8 +484,10 @@ a {
   height: 42px;
   display: grid;
   place-items: center;
-  border-radius: 12px;
+  border-radius: var(--radius-brutal);
   background: rgba(255, 255, 255, 0.08);
+  border: 2px solid #000;
+  box-shadow: 3px 3px 0 #000;
   margin-bottom: 14px;
   font-size: 1.2rem;
   color: var(--accent-1);
@@ -463,14 +499,15 @@ a {
   gap: 8px;
   padding: 10px 12px;
   margin-top: 10px;
-  border-radius: 12px;
+  border-radius: var(--radius-brutal);
   background: linear-gradient(120deg, rgba(124, 58, 237, 0.25), rgba(24, 161, 255, 0.18));
   color: #f6f5fb;
   font-weight: 700;
   font-size: 0.95rem;
   text-transform: uppercase;
   letter-spacing: 0.02em;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  border: 2px solid #000;
+  box-shadow: 4px 4px 0 #000;
 }
 
 .price-badge::before {
@@ -493,6 +530,8 @@ a {
   color: var(--accent-3);
   font-weight: 600;
   margin-top: 12px;
+  border: 2px solid #000;
+  box-shadow: 3px 3px 0 #000;
 }
 
 .cases-grid {
@@ -502,15 +541,15 @@ a {
 }
 
 .case-card {
-  border-radius: 18px;
-  border: 1px solid var(--border);
+  border-radius: var(--radius-panel);
+  border: var(--border-thick);
   background: var(--card);
   overflow: hidden;
-  box-shadow: var(--shadow);
+  box-shadow: var(--shadow-offset);
   display: grid;
   color: inherit;
   text-decoration: none;
-  transition: transform 0.2s ease, border-color 0.2s ease;
+  transition: transform 0.14s ease, box-shadow 0.14s ease;
 }
 
 .case-visual {
@@ -521,8 +560,8 @@ a {
 }
 
 .case-card:hover {
-  transform: translateY(-6px);
-  border-color: rgba(255, 255, 255, 0.18);
+  transform: translate(-3px, -3px);
+  box-shadow: 10px 10px 0 #000;
 }
 
 .case-visual::after {
@@ -556,9 +595,10 @@ a {
 
 .contact-info {
   padding: 22px;
-  border-radius: 18px;
-  border: 1px solid var(--border);
+  border-radius: var(--radius-panel);
+  border: var(--border-thick);
   background: var(--card);
+  box-shadow: var(--shadow-offset);
 }
 
 .contact-actions {
@@ -570,26 +610,29 @@ a {
 
 .social {
   padding: 10px 14px;
-  border-radius: 10px;
+  border-radius: var(--radius-brutal);
   background: rgba(255, 255, 255, 0.06);
-  border: 1px solid var(--border);
+  border: 2px solid #000;
   color: var(--accent-3);
   font-weight: 600;
-  transition: transform 0.2s ease, color 0.2s ease;
+  transition: transform 0.14s ease, box-shadow 0.14s ease, color 0.14s ease;
+  box-shadow: 3px 3px 0 #000;
 }
 
 .social:hover {
-  transform: translateY(-2px);
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0 #000;
   color: var(--accent-4);
 }
 
 .contact-form {
   padding: 22px;
-  border-radius: 18px;
-  border: 1px solid var(--border);
+  border-radius: var(--radius-panel);
+  border: var(--border-thick);
   background: rgba(255, 255, 255, 0.04);
   display: grid;
   gap: 10px;
+  box-shadow: var(--shadow-offset);
 }
 
 .contact-form label {
@@ -601,19 +644,26 @@ a {
 .contact-form textarea {
   width: 100%;
   padding: 12px 12px;
-  border-radius: 12px;
-  border: 1px solid var(--border);
+  border-radius: var(--radius-brutal);
+  border: 2px solid #000;
   background: rgba(5, 3, 15, 0.7);
   color: var(--text);
   font-size: 1rem;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+  box-shadow: 3px 3px 0 #000;
 }
 
 .contact-form input:focus,
 .contact-form textarea:focus {
   outline: none;
-  border-color: rgba(124, 58, 237, 0.8);
-  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.25);
+  transform: translate(-1px, -1px);
+  box-shadow: 5px 5px 0 #000;
+}
+
+.contact-form input:focus-visible,
+.contact-form textarea:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: 2px;
 }
 
 .form-feedback {
@@ -623,7 +673,7 @@ a {
 
 .site-footer {
   padding: 24px 7vw 40px;
-  border-top: 1px solid var(--border);
+  border-top: var(--border-thicker);
   background: rgba(5, 3, 15, 0.9);
   display: grid;
   gap: 8px;
@@ -656,13 +706,13 @@ a {
     position: fixed;
     inset: 70px 20px auto 20px;
     background: rgba(5, 3, 15, 0.95);
-    border: 1px solid var(--border);
-    border-radius: 12px;
+    border: var(--border-thick);
+    border-radius: var(--radius-panel);
     padding: 18px;
     flex-direction: column;
     gap: 12px;
     align-items: flex-start;
-    box-shadow: var(--shadow);
+    box-shadow: var(--shadow-offset);
     transform: translateY(-140%);
     transition: transform 0.3s ease;
   }
@@ -754,11 +804,11 @@ a {
   position: absolute;
   width: 260px;
   aspect-ratio: 9 / 19.5;
-  border-radius: 28px;
+  border-radius: 18px;
   padding: 12px;
   background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.14);
-  box-shadow: 0 22px 60px rgba(0,0,0,0.35);
+  border: var(--border-thick);
+  box-shadow: var(--shadow-offset);
   backdrop-filter: blur(10px);
   transform-style: preserve-3d;
 }
@@ -767,8 +817,8 @@ a {
   content: "";
   position: absolute;
   inset: 10px;
-  border-radius: 22px;
-  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 12px;
+  border: 2px solid #000;
   pointer-events: none;
 }
 
@@ -776,7 +826,7 @@ a {
 .phone-mock__screen {
   width: 100%;
   height: 100%;
-  border-radius: 22px;
+  border-radius: 12px;
   overflow: hidden;
   background: rgba(0,0,0,0.25);
 }
@@ -817,7 +867,7 @@ a {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   background: rgba(0,0,0,0.35);
-  border: 1px solid rgba(255,255,255,0.14);
+  border: 2px solid #000;
   backdrop-filter: blur(8px);
 }
 
@@ -875,7 +925,7 @@ a {
 /* A section já tem padding via .section, então não precisa padding aqui */
 .before-after {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(5, 3, 15, 0.12));
-  border-block: 1px solid var(--border);
+  border-block: var(--border-thicker);
 }
 
 .before-after__grid {
@@ -926,11 +976,11 @@ a {
   position: absolute;
   width: 260px;
   aspect-ratio: 9 / 19.5;
-  border-radius: 28px;
+  border-radius: 18px;
   padding: 12px;
   background: var(--card);
-  border: 1px solid rgba(255,255,255,0.14);
-  box-shadow: 0 22px 60px rgba(0,0,0,0.35);
+  border: var(--border-thick);
+  box-shadow: var(--shadow-offset);
   backdrop-filter: blur(10px);
   transform-style: preserve-3d;
 }
@@ -939,15 +989,15 @@ a {
   content: "";
   position: absolute;
   inset: 10px;
-  border-radius: 22px;
-  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 12px;
+  border: 2px solid #000;
   pointer-events: none;
 }
 
 .phone-mock__screen {
   width: 100%;
   height: 100%;
-  border-radius: 22px;
+  border-radius: 12px;
   overflow: hidden;
   background: rgba(0,0,0,0.25);
 }
@@ -986,7 +1036,7 @@ a {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   background: rgba(0,0,0,0.35);
-  border: 1px solid rgba(255,255,255,0.14);
+  border: 2px solid #000;
   backdrop-filter: blur(8px);
   color: var(--text);
 }
@@ -1172,4 +1222,3 @@ a {
     width: min(260px, 90vw);
   }
 }
-
