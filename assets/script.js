@@ -83,12 +83,12 @@ form?.addEventListener("submit", async (event) => {
 
   if (!name || !email || !message) {
     feedback.textContent = "Preencha todos os campos para seguir.";
-    feedback.style.color = "#ff4d00";
+    feedback.style.color = "var(--accent)";
     return;
   }
 
   feedback.textContent = "Enviando...";
-  feedback.style.color = "#ff7a33";
+  feedback.style.color = "var(--accent-2)";
 
   try {
     await submitContactForm({ name, email, message });
@@ -97,6 +97,6 @@ form?.addEventListener("submit", async (event) => {
     form.reset();
   } catch (error) {
     feedback.textContent = "Não foi possível enviar. Tente novamente em instantes.";
-    feedback.style.color = "#ff4d00";
+    feedback.style.color = "var(--accent)";
   }
 });
