@@ -8,6 +8,7 @@ const form = document.getElementById("contactForm");
 const feedback = document.getElementById("formFeedback");
 const FORM_ENDPOINT = "https://formsubmit.co/ajax/beyondbits@beyond.dev.br";
 const THEME_STORAGE_KEY = "beyond-theme";
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 function applyTheme(theme) {
   document.documentElement.dataset.theme = theme;
@@ -47,18 +48,22 @@ menuToggle?.addEventListener("click", () => {
   nav?.classList.toggle("open");
 });
 
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-      }
-    });
-  },
-  { threshold: 0.2 }
-);
+if (prefersReducedMotion) {
+  revealables.forEach((el) => el.classList.add("visible"));
+} else {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    },
+    { threshold: 0.2 }
+  );
 
-revealables.forEach((el) => observer.observe(el));
+  revealables.forEach((el) => observer.observe(el));
+}
 
 async function submitContactForm(payload) {
   const response = await fetch(FORM_ENDPOINT, {
