@@ -14,7 +14,10 @@ function applyTheme(theme) {
   if (themeToggle && themeLabel) {
     const isDark = theme === "dark";
     themeToggle.setAttribute("aria-pressed", String(isDark));
-    themeToggle.setAttribute("aria-label", isDark ? "Alternar para modo claro" : "Alternar para modo escuro");
+    themeToggle.setAttribute(
+      "aria-label",
+      isDark ? "Alternar para modo claro" : "Alternar para modo escuro"
+    );
     themeLabel.textContent = isDark ? "Light" : "Dark";
   }
 }
@@ -36,12 +39,12 @@ navLinks.forEach((link) => {
     const target = document.getElementById(targetId);
     if (!target) return;
     target.scrollIntoView({ behavior: "smooth", block: "start" });
-    nav.classList.remove("open");
+    nav?.classList.remove("open");
   });
 });
 
-menuToggle.addEventListener("click", () => {
-  nav.classList.toggle("open");
+menuToggle?.addEventListener("click", () => {
+  nav?.classList.toggle("open");
 });
 
 const observer = new IntersectionObserver(
@@ -80,20 +83,20 @@ form?.addEventListener("submit", async (event) => {
 
   if (!name || !email || !message) {
     feedback.textContent = "Preencha todos os campos para seguir.";
-    feedback.style.color = "#ff5ea8";
+    feedback.style.color = "#ff4d00";
     return;
   }
 
   feedback.textContent = "Enviando...";
-  feedback.style.color = "#18a1ff";
+  feedback.style.color = "#ff7a33";
 
   try {
     await submitContactForm({ name, email, message });
     feedback.textContent = "Mensagem enviada com sucesso!";
-    feedback.style.color = "#4ade80";
+    feedback.style.color = "#36c46b";
     form.reset();
   } catch (error) {
     feedback.textContent = "Não foi possível enviar. Tente novamente em instantes.";
-    feedback.style.color = "#ff5ea8";
+    feedback.style.color = "#ff4d00";
   }
 });
