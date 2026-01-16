@@ -1,10 +1,33 @@
 const navLinks = document.querySelectorAll(".main-nav a[href^='#']");
 const nav = document.querySelector(".main-nav");
 const menuToggle = document.querySelector(".menu-toggle");
+const themeToggle = document.querySelector("[data-theme-toggle]");
+const themeLabel = document.querySelector(".theme-toggle__label");
 const revealables = document.querySelectorAll(".reveal");
 const form = document.getElementById("contactForm");
 const feedback = document.getElementById("formFeedback");
 const FORM_ENDPOINT = "https://formsubmit.co/ajax/beyondbits@beyond.dev.br";
+const THEME_STORAGE_KEY = "beyond-theme";
+
+function applyTheme(theme) {
+  document.documentElement.dataset.theme = theme;
+  if (themeToggle && themeLabel) {
+    const isDark = theme === "dark";
+    themeToggle.setAttribute("aria-pressed", String(isDark));
+    themeToggle.setAttribute("aria-label", isDark ? "Alternar para modo claro" : "Alternar para modo escuro");
+    themeLabel.textContent = isDark ? "Light" : "Dark";
+  }
+}
+
+const storedTheme = localStorage.getItem(THEME_STORAGE_KEY);
+const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+applyTheme(storedTheme || (prefersDark ? "dark" : "light"));
+
+themeToggle?.addEventListener("click", () => {
+  const nextTheme = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+  localStorage.setItem(THEME_STORAGE_KEY, nextTheme);
+  applyTheme(nextTheme);
+});
 
 navLinks.forEach((link) => {
   link.addEventListener("click", (event) => {
