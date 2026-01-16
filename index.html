@@ -3,248 +3,232 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Beyond Bits — Design, Tecnologia e Criatividade</title>
+  <title>Beyond Bits — Brutalismo Digital com Propósito</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
   <script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-analytics.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-analytics.js";
 
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  const firebaseConfig = {
-    apiKey: "AIzaSyAHMJAGZOzjaj67iOL3VgIs-myXwFBnM-Q",
-    authDomain: "site-beyond.firebaseapp.com",
-    projectId: "site-beyond",
-    storageBucket: "site-beyond.firebasestorage.app",
-    messagingSenderId: "721036704002",
-    appId: "1:721036704002:web:d4ac2dda851f6fca7bea1b",
-    measurementId: "G-B3MJQ5KVPZ"
-  };
+    const firebaseConfig = {
+      apiKey: "AIzaSyAHMJAGZOzjaj67iOL3VgIs-myXwFBnM-Q",
+      authDomain: "site-beyond.firebaseapp.com",
+      projectId: "site-beyond",
+      storageBucket: "site-beyond.firebasestorage.app",
+      messagingSenderId: "721036704002",
+      appId: "1:721036704002:web:d4ac2dda851f6fca7bea1b",
+      measurementId: "G-B3MJQ5KVPZ"
+    };
 
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
-</script>
-  <div class="noise"></div>
-  <div class="flares"></div>
+    const app = initializeApp(firebaseConfig);
+    getAnalytics(app);
+  </script>
+
+  <div class="grain"></div>
+
   <header class="site-header">
-    <div class="header-inner">
-      <a class="brand" href="#inicio">
-        <img src="assets/logo_beyond.png" alt="Logo Beyond Bits" class="brand-mark">
-        <div class="logo">Beyond <span>Bits</span></div>
+    <div class="container header-grid">
+      <a class="brand" href="#inicio" aria-label="Beyond Bits">
+        <span class="brand-mark">B/B</span>
+        <span class="brand-text">Beyond <strong>Bits</strong></span>
       </a>
       <nav class="main-nav" aria-label="Menu principal">
         <a href="#inicio">Início</a>
-        <a href="#sobre">Sobre</a>
+        <a href="#sobre">Manifesto</a>
         <a href="#servicos">Serviços</a>
         <a href="#cases">Cases</a>
-        <a href="#contato" class="cta">Contato</a>
+        <a href="#contato" class="nav-cta">Contato</a>
       </nav>
       <div class="header-actions">
         <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Alternar para modo escuro">
-          <span aria-hidden="true">☾</span>
+          <span aria-hidden="true">◐</span>
           <span class="theme-toggle__label">Dark</span>
         </button>
-        <button class="menu-toggle" aria-label="Abrir menu">
-          <span></span><span></span><span></span>
-        </button>
+        <button class="menu-toggle" type="button" aria-label="Abrir menu">Menu</button>
       </div>
     </div>
   </header>
 
   <main id="inicio">
-    <section class="hero">
-      <div class="orb orb-left"></div>
-      <div class="orb orb-right"></div>
-      <div class="grid"></div>
-      <div class="section-inner hero-inner">
-        <div class="hero-content">
-          <p class="eyebrow">Design · Tecnologia · Criatividade</p>
-          <h1>Transformamos ideias em experiências digitais que conectam marcas e pessoas.</h1>
-          <p class="subtitle">
-            Criamos identidades fortes, produtos digitais de alta performance e narrativas que brilham em qualquer tela.
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="kicker">Estúdio de design + tecnologia</p>
+          <h1 id="hero-title">Brutalismo estratégico para marcas que querem ser lembradas.</h1>
+          <p class="lead">
+            Somos a Beyond Bits. Criamos experiências digitais com impacto, clareza e ousadia. Nada de layouts tímidos —
+            entregamos presença visual e performance.
           </p>
           <div class="hero-actions">
-            <a class="btn primary" href="#contato">Fale com a Beyond Bits</a>
-            <a class="btn ghost" href="#servicos">Conheça os serviços</a>
+            <a class="button primary" href="#contato">Começar projeto</a>
+            <a class="button ghost" href="#servicos">Explorar serviços</a>
           </div>
-          <div class="hero-meta">
+        </div>
+        <div class="hero-panel">
+          <div class="panel-row">
+            <span class="panel-label">Especialidades</span>
+            <span class="panel-value">Branding · Web · Sistemas</span>
+          </div>
+          <div class="panel-row">
+            <span class="panel-label">Abordagem</span>
+            <span class="panel-value">Design autoral + execução rápida</span>
+          </div>
+          <div class="panel-row">
+            <span class="panel-label">Impacto</span>
+            <span class="panel-value">Clareza, conversão e identidade</span>
+          </div>
+          <div class="panel-grid">
             <div>
-              <span class="meta-label">Foco</span>
-              <span class="meta-value">Design tecnológico + Tecnologia com propósito</span>
+              <span class="panel-stat">+48</span>
+              <span class="panel-label">Projetos lançados</span>
             </div>
             <div>
-              <span class="meta-label">Expertise</span>
-              <span class="meta-value">Branding · Web · Sistemas sob medida</span>
+              <span class="panel-stat">24h</span>
+              <span class="panel-label">Resposta média</span>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="sobre" class="section about">
-      <div class="section-inner">
+    <section id="sobre" class="section manifesto" aria-labelledby="manifesto-title">
+      <div class="container">
         <div class="section-header">
-          <p class="tag">Sobre nós</p>
-          <h2>Somos a Beyond Bits — criativa, autêntica e obcecada por qualidade.</h2>
+          <p class="section-tag">Manifesto</p>
+          <h2 id="manifesto-title">Design como manifesto: direto, legível e impossível de ignorar.</h2>
+          <p class="section-subtitle">
+            Nosso trabalho nasce de três pilares: estética com intenção, tecnologia sem ruído e colaboração sem enrolação.
+          </p>
         </div>
-        <p class="about-text">
-          Acreditamos em parcerias verdadeiras, conversas francas e resultados que falam por si. Combinamos estratégia, estética e tecnologia para construir marcas e produtos que conquistam corações e mentes. Cada projeto é uma criação exclusiva, pensada para destacar sua autenticidade.
-        </p>
-        <div class="pillars">
-          <div class="pillar-card reveal">
-            <span>01</span>
-            <h3>Criatividade sem clichê</h3>
-            <p>Visuals ousados, alinhados ao propósito da marca e à experiência do usuário.</p>
-          </div>
-          <div class="pillar-card reveal">
-            <span>02</span>
-            <h3>Qualidade obsessiva</h3>
-            <p>Do primeiro pixel ao último teste, entregamos excelência com velocidade.</p>
-          </div>
-          <div class="pillar-card reveal">
-            <span>03</span>
-            <h3>Parceria real</h3>
-            <p>Processo colaborativo, transparente e focado em resultados mensuráveis.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="servicos" class="section services">
-      <div class="section-inner">
-        <div class="section-header">
-          <p class="tag">Serviços</p>
-          <h2>Criação digital de ponta, pensada para destacar sua marca.</h2>
-        </div>
-        <div class="services-grid">
-          <article class="service-card reveal">
-            <div class="icon">✦</div>
-            <h3>Criação de Sites</h3>
-            <p>Landing pages estratégicas para validação e presença digital inicial, com performance, SEO e experiência fluida.</p>
-            <span class="price-badge">Landing page start a partir de R$ 800</span>
-            <span class="chip">Web Start</span>
+        <div class="grid-3">
+          <article class="card reveal">
+            <h3>01 · Clareza brutal</h3>
+            <p>Layouts alinhados, hierarquia rígida e comunicação sem rodeios. O usuário entende em segundos.</p>
           </article>
-          <article class="service-card reveal">
-            <div class="icon">⌘</div>
-            <h3>Branding e Design de Marcas</h3>
-            <p>Identidade visual essencial para marcas em fase inicial ou reposicionamento, com coerência para crescer em todos os canais.</p>
-            <span class="price-badge">Branding essencial a partir de R$ 500</span>
-            <span class="chip">Brand Essentials</span>
+          <article class="card reveal">
+            <h3>02 · Forma com função</h3>
+            <p>Cada bloco tem um motivo. Cada sombra indica ação. Nada é decorativo — tudo é funcional.</p>
           </article>
-          <article class="service-card reveal">
-            <div class="icon">∞</div>
-            <h3>Sistemas Personalizados</h3>
-            <p>Dashboards, portais e produtos digitais sob medida para automatizar rotinas e escalar operações com segurança.</p>
-            <span class="price-badge neutral">Projetos sob demanda • fale com a gente</span>
-            <span class="chip">Custom Systems</span>
+          <article class="card reveal">
+            <h3>03 · Parceria real</h3>
+            <p>Processos ágeis, feedback direto e uma equipe presente do briefing ao pós-lançamento.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="cases" class="section cases">
-      <div class="section-inner">
+    <section id="servicos" class="section services" aria-labelledby="services-title">
+      <div class="container">
         <div class="section-header">
-          <p class="tag">Cases de sucesso</p>
-          <h2>Estratégia + criatividade que geram resultados reais.</h2>
+          <p class="section-tag">Serviços</p>
+          <h2 id="services-title">Pacotes objetivos para resolver seu próximo desafio digital.</h2>
         </div>
-        <div class="cases-grid">
-          <a class="case-card reveal" href="https://www.instagram.com/versatte_sports?igsh=MXJ6cjNuamNpbmtqYw==" target="_blank" rel="noopener noreferrer" aria-label="Abrir case Versatte Sports no Instagram">
-            <div class="case-visual versatte"></div>
-            <div class="case-content">
+        <div class="grid-3">
+          <article class="card service-card reveal">
+            <span class="card-label">Web Start</span>
+            <h3>Sites e Landing Pages</h3>
+            <p>Experiências com foco em conversão, SEO e velocidade. Prontas para testar rápido e vender mais.</p>
+            <div class="card-meta">Landing page start · a partir de R$ 800</div>
+          </article>
+          <article class="card service-card reveal">
+            <span class="card-label">Brand Essentials</span>
+            <h3>Branding & Identidade</h3>
+            <p>Marcas com personalidade brutalista, coerência visual e aplicações prontas para crescer.</p>
+            <div class="card-meta">Branding essencial · a partir de R$ 500</div>
+          </article>
+          <article class="card service-card reveal">
+            <span class="card-label">Custom Systems</span>
+            <h3>Sistemas sob medida</h3>
+            <p>Dashboards, portais e produtos digitais para automatizar operações e escalar com segurança.</p>
+            <div class="card-meta">Projetos sob demanda · fale com a gente</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="cases" class="section cases" aria-labelledby="cases-title">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-tag">Cases</p>
+          <h2 id="cases-title">Trabalho real, impacto real.</h2>
+        </div>
+        <div class="grid-2">
+          <a class="case-card reveal" href="https://www.instagram.com/versatte_sports?igsh=MXJ6cjNuamNpbmtqYw==" target="_blank" rel="noopener noreferrer">
+            <div class="case-visual case-versatte"></div>
+            <div class="case-body">
               <h3>Versatte Sports</h3>
-              <p>Criamos a cara e identidade da marca, além do design de posts no Instagram, elevando alcance e engajamento com narrativa esportiva.</p>
+              <p>Reposicionamento visual e narrativa esportiva que aumentaram engajamento e autoridade.</p>
               <span class="chip">Brand & Social</span>
             </div>
           </a>
-          <a class="case-card reveal" href="https://coredb.com.br/" target="_blank" rel="noopener noreferrer" aria-label="Abrir site do case CoreDB">
-            <div class="case-visual coredb"></div>
-            <div class="case-content">
+          <a class="case-card reveal" href="https://coredb.com.br/" target="_blank" rel="noopener noreferrer">
+            <div class="case-visual case-core"></div>
+            <div class="case-body">
               <h3>CoreDB</h3>
-              <p>Desenvolvimento de site focado em conversão, com performance elevada e linguagem técnica simplificada para decision makers.</p>
+              <p>Site de conversão para decision makers com performance e clareza técnica.</p>
               <span class="chip">Web Experience</span>
             </div>
           </a>
         </div>
       </div>
     </section>
-    
-  <section id="antes-depois" class="section before-after reveal">
-    <div class="section-inner">
-      <div class="section-header">
-        <p class="tag">Antes e depois</p>
-        <h2>Antes e Depois: a transformação que gera resultado.</h2>
-      </div>
 
-      <div class="before-after__grid">
-        <div class="before-after__visual">
-          <div class="before-after__stack">
-            <div class="phone-mock phone-mock--before">
-              <span class="phone-tag">Antes</span>
-              <div class="phone-mock__screen">
-                <img src="assets/versatte-antes.jpeg" alt="Instagram Versatte antes">
-              </div>
-            </div>
-
-            <div class="phone-mock phone-mock--after">
-              <span class="phone-tag">Depois</span>
-              <div class="phone-mock__screen">
-                <img src="assets/versatte-depois.jpeg" alt="Instagram Versatte depois">
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="before-after__content">
-          <h3>Repaginamos a Versatte para parecer grande — e converter como grande.</h3>
-          <p>
-            A Beyond fortaleceu a presença digital da Versatte com um feed mais limpo, coerente e estratégico.
-            O resultado é uma identidade mais profissional, com mais clareza e impacto em cada post.
-          </p>
-          <div class="before-after__highlights">
-            <span class="chip">Identidade consistente</span>
-            <span class="chip">Mais credibilidade</span>
-            <span class="chip">Conteúdo que vende</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-
-    <section id="contato" class="section contact">
-      <div class="section-inner">
+    <section id="antes-depois" class="section before-after" aria-labelledby="before-after-title">
+      <div class="container before-after-grid">
         <div class="section-header">
-          <p class="tag">Contato</p>
-          <h2>Pronto para criar algo memorável? Vamos conversar.</h2>
+          <p class="section-tag">Antes e Depois</p>
+          <h2 id="before-after-title">Transformação visual que muda percepção — e resultado.</h2>
+          <p class="section-subtitle">Atualizamos a Versatte para parecer grande, sólida e memorável.</p>
         </div>
-        <div class="contact-grid">
-          <div class="contact-info reveal">
-            <p>Conte sua ideia e receba uma proposta personalizada. Preferiu um toque rápido? Chame no canal que fizer sentido.</p>
+        <div class="before-after-visual">
+          <div class="phone before">
+            <span class="phone-tag">Antes</span>
+            <img src="assets/versatte-antes.jpeg" alt="Instagram Versatte antes">
+          </div>
+          <div class="phone after">
+            <span class="phone-tag">Depois</span>
+            <img src="assets/versatte-depois.jpeg" alt="Instagram Versatte depois">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contato" class="section contact" aria-labelledby="contact-title">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-tag">Contato</p>
+          <h2 id="contact-title">Vamos construir sua próxima presença brutalista.</h2>
+        </div>
+        <div class="grid-2">
+          <div class="card contact-card reveal">
+            <p class="contact-lead">Descreva seu projeto e receba uma proposta objetiva, sem burocracia.</p>
             <div class="contact-actions">
               <a
-                class="social whatsapp-link"
+                class="button secondary whatsapp-link"
                 href="#"
                 data-whatsapp-key="contact"
                 data-message="Olá! Quero falar sobre um novo projeto com a Beyond Bits."
-                aria-label="Falar com a Beyond Bits no WhatsApp"
               >WhatsApp</a>
-              <a class="social" href="https://www.instagram.com/beyondbitsltda/" target="_blank" rel="noopener noreferrer" aria-label="Instagram Beyond Bits">Instagram</a>
-              <a class="social" href="mailto:beyondbits@beyond.dev.br" target="_blank" rel="noreferrer">E-mail</a>
-              <a class="social" href="https://www.linkedin.com/company/beyond-bits-ltda/?viewAsMember=true" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Beyond Bits">LinkedIn</a>
+              <a class="button secondary" href="https://www.instagram.com/beyondbitsltda/" target="_blank" rel="noopener noreferrer">Instagram</a>
+              <a class="button secondary" href="mailto:beyondbits@beyond.dev.br" target="_blank" rel="noreferrer">E-mail</a>
+              <a class="button secondary" href="https://www.linkedin.com/company/beyond-bits-ltda/?viewAsMember=true" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            </div>
+            <div class="contact-meta">
+              <div>
+                <span class="panel-label">Horário</span>
+                <span class="panel-value">Seg-Sex · 09h-18h</span>
+              </div>
+              <div>
+                <span class="panel-label">Localização</span>
+                <span class="panel-value">Brasil · atendimento remoto</span>
+              </div>
             </div>
           </div>
-          <form class="contact-form reveal" id="contactForm">
+          <form class="card form-card reveal" id="contactForm">
             <label for="name">Nome</label>
             <input type="text" id="name" name="name" placeholder="Seu nome" required>
 
@@ -254,7 +238,7 @@
             <label for="message">Mensagem</label>
             <textarea id="message" name="message" rows="4" placeholder="Fale sobre o seu projeto" required></textarea>
 
-            <button type="submit" class="btn primary full">Enviar mensagem</button>
+            <button type="submit" class="button primary full">Enviar mensagem</button>
             <p class="form-feedback" id="formFeedback" role="status" aria-live="polite"></p>
           </form>
         </div>
@@ -263,21 +247,23 @@
   </main>
 
   <footer class="site-footer">
-    <div class="section-inner footer-inner">
-      <div class="logo">Beyond <span>Bits</span></div>
-      <p>Design, tecnologia e criatividade para marcas visionárias.</p>
+    <div class="container footer-grid">
+      <div>
+        <span class="brand-text">Beyond <strong>Bits</strong></span>
+        <p>Design, tecnologia e criatividade para marcas visionárias.</p>
+      </div>
       <div class="footer-links">
-        <a href="https://www.instagram.com/beyondbitsltda/" target="_blank" rel="noopener noreferrer" aria-label="Instagram Beyond Bits">Instagram</a>
-        <a href="https://www.linkedin.com/company/beyond-bits-ltda/?viewAsMember=true" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Beyond Bits">LinkedIn</a>
+        <a href="https://www.instagram.com/beyondbitsltda/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://www.linkedin.com/company/beyond-bits-ltda/?viewAsMember=true" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         <a
           href="#"
           class="whatsapp-link"
           data-whatsapp-key="footer"
           data-message="Olá! Gostaria de falar com a Beyond Bits."
-          aria-label="Falar com a Beyond Bits no WhatsApp"
         >WhatsApp</a>
         <a href="mailto:beyondbits@beyond.dev.br" target="_blank" rel="noreferrer">E-mail</a>
       </div>
+      <div class="footer-meta">© 2024 Beyond Bits. Brutalismo feito à mão.</div>
     </div>
   </footer>
 
