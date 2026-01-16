@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="assets/logo.png" type="image/png">
   <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
@@ -33,13 +34,16 @@
   <header class="site-header">
     <div class="container header-grid">
       <a class="brand" href="#inicio" aria-label="Beyond Bits">
-        <span class="brand-mark">B/B</span>
+        <span class="brand-mark" aria-hidden="true">
+          <img src="assets/logo.png" alt="">
+        </span>
         <span class="brand-text">Beyond <strong>Bits</strong></span>
       </a>
       <nav class="main-nav" aria-label="Menu principal">
         <a href="#inicio">Início</a>
         <a href="#sobre">Manifesto</a>
         <a href="#servicos">Serviços</a>
+        <a href="#projetos">Projetos</a>
         <a href="#cases">Cases</a>
         <a href="#contato" class="nav-cta">Contato</a>
       </nav>
@@ -69,6 +73,10 @@
           </div>
         </div>
         <div class="hero-panel">
+          <div class="hero-ornament" aria-hidden="true">
+            <span class="shape shape-circle"></span>
+            <span class="shape shape-zig"></span>
+          </div>
           <div class="panel-row">
             <span class="panel-label">Especialidades</span>
             <span class="panel-value">Branding · Web · Sistemas</span>
@@ -145,6 +153,114 @@
             <h3>Sistemas sob medida</h3>
             <p>Dashboards, portais e produtos digitais para automatizar operações e escalar com segurança.</p>
             <div class="card-meta">Projetos sob demanda · fale com a gente</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projetos" class="section projects" aria-labelledby="projects-title">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-tag">Projetos</p>
+          <h2 id="projects-title">Showcase disruptivo: protótipos que já nascem com presença brutal.</h2>
+          <p class="section-subtitle">Um laboratório de ideias em camadas, com stacks vivos e microinterações que respiram tech.</p>
+        </div>
+        <div class="projects-marquee" aria-hidden="true">
+          <div class="marquee-track">
+            <span>Identidade expressa</span>
+            <span>Produto digital</span>
+            <span>Landing brutalista</span>
+            <span>UX direto</span>
+            <span>Motion sutil</span>
+            <span>Stack roxo</span>
+            <span>Design sistemático</span>
+            <span>Grid ativo</span>
+          </div>
+        </div>
+        <div class="projects-grid">
+          <article class="project-card reveal" style="--stack-order: 1;">
+            <div class="project-header">
+              <span class="project-id">Projeto 01</span>
+              <span class="project-status">Em andamento</span>
+            </div>
+            <h3>Plataforma Aurora</h3>
+            <p>Dashboard com visual dominante, hierarquia brutal e foco em performance crítica.</p>
+            <div class="project-tags">
+              <span>Web app</span>
+              <span>UI System</span>
+              <span>Analytics</span>
+            </div>
+            <a class="project-link" href="#" aria-disabled="true">Ver conceito</a>
+          </article>
+          <article class="project-card reveal" style="--stack-order: 2;">
+            <div class="project-header">
+              <span class="project-id">Projeto 02</span>
+              <span class="project-status">Sprint 02</span>
+            </div>
+            <h3>Neon Commerce</h3>
+            <p>Checkout ultrarrápido com cards modulares e tom editorial nos CTAs.</p>
+            <div class="project-tags">
+              <span>E-commerce</span>
+              <span>Conversion</span>
+              <span>Motion</span>
+            </div>
+            <a class="project-link" href="#" aria-disabled="true">Ver conceito</a>
+          </article>
+          <article class="project-card reveal" style="--stack-order: 3;">
+            <div class="project-header">
+              <span class="project-id">Projeto 03</span>
+              <span class="project-status">Prototype</span>
+            </div>
+            <h3>Core Ritual</h3>
+            <p>Identidade digital para comunidade tech com manifesto forte e grid vivo.</p>
+            <div class="project-tags">
+              <span>Branding</span>
+              <span>Community</span>
+              <span>Landing</span>
+            </div>
+            <a class="project-link" href="#" aria-disabled="true">Ver conceito</a>
+          </article>
+          <article class="project-card reveal" style="--stack-order: 4;">
+            <div class="project-header">
+              <span class="project-id">Projeto 04</span>
+              <span class="project-status">Lab</span>
+            </div>
+            <h3>Pulse Onboarding</h3>
+            <p>Fluxo de entrada gamificado com cards empilhados e feedback tátil.</p>
+            <div class="project-tags">
+              <span>Onboarding</span>
+              <span>Product</span>
+              <span>UX</span>
+            </div>
+            <a class="project-link" href="#" aria-disabled="true">Ver conceito</a>
+          </article>
+          <article class="project-card reveal" style="--stack-order: 5;">
+            <div class="project-header">
+              <span class="project-id">Projeto 05</span>
+              <span class="project-status">Preview</span>
+            </div>
+            <h3>Studio Orbit</h3>
+            <p>Site manifesto com blocos assimétricos equilibrados e CTA magnético.</p>
+            <div class="project-tags">
+              <span>Studio</span>
+              <span>Webflow</span>
+              <span>Story</span>
+            </div>
+            <a class="project-link" href="#" aria-disabled="true">Ver conceito</a>
+          </article>
+          <article class="project-card reveal" style="--stack-order: 6;">
+            <div class="project-header">
+              <span class="project-id">Projeto 06</span>
+              <span class="project-status">Roadmap</span>
+            </div>
+            <h3>Signal Loop</h3>
+            <p>Portal B2B com filtros brutais, data layer e layouts simétricos.</p>
+            <div class="project-tags">
+              <span>B2B</span>
+              <span>Portal</span>
+              <span>Data</span>
+            </div>
+            <a class="project-link" href="#" aria-disabled="true">Ver conceito</a>
           </article>
         </div>
       </div>
